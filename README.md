@@ -127,7 +127,7 @@ C9300(config)#end
 
 <img src="imgs/enableentergs.png" style="zoom:80%;" />
 
-Step 5. Enter the guestshell CLI. This guestshell container can access the device bootflash **guest-share** directory only.
+Step 4. Enter the guestshell CLI. This guestshell container can access the device bootflash **guest-share** directory only.
 
 ```
 c9300# guestshell
@@ -165,7 +165,7 @@ Python 3.6.8
 
 In the example above we show that Python3 is installed.
 
- Step 6.     Exit the guestshell by sending exit command and returning to the IOS XE CLI
+ Step 5.     Exit the guestshell by sending exit command and returning to the IOS XE CLI
 
 ```
 [guestshell@guestshell ~]$ exit
@@ -196,7 +196,7 @@ hello
 'Cisco IOS XE Software, Version 17.04.01\nCisco IOS Software [Bengaluru], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.4.1, RELEASE SOFTWARE (fc5)\nTechnical Support: http://www.cisco.com/techsupport\nCopyright (c) 1986-2020 by Cisco Systems, Inc.\nCompiled Thu 26-Nov-20 23:35 by mcpre\nCisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems, Inc.\nAll rights reserved.  Certain components of Cisco IOS-XE software . . .
 ```
 
- Step 1.     Now we will import the **clip** function from CLI module and test sending CLI to the device. It will print in a stdout rather than returning it. **Stdout**, also known as "standard output", is the file where a program writes its output data.
+ Step 2.     Now we will import the **clip** function from CLI module and test sending CLI to the device. It will print in a stdout rather than returning it. **Stdout**, also known as "standard output", is the file where a program writes its output data.
 
 ```
 >>> from cli import clip
@@ -211,19 +211,19 @@ Cisco IOS-XE software, Copyright (c) 2005-2020 by cisco Systems, Inc.
 
 Notice that the output of the **clip** function is much easier to read than before.
 
- Step 1.     **configure** is another function available in the **cli** module to provision the device. Create loopback 99 with ip address 99.99.99.99 using the **configure** function as follows.
+ Step 3.     **configure** is another function available in the **cli** module to provision the device. Create loopback 99 with ip address 99.99.99.99 using the **configure** function as follows.
 
 ```
 >>> cli.configure(["interface loopback 99", "ip address 99.99.99.99 255.255.255.255", "end"])
 ```
 
- Step 1.     Verify the interface **loopback 99** has been created by using the **clip** function.
+ Step 4.     Verify the interface **loopback 99** has been created by using the **clip** function.
 
 ```
 >>> cli.clip('sh ip int br')
 ```
 
- Step 2.     Exit the interactive shell by executing **quit()**
+ Step 5.     Exit the interactive shell by executing **quit()**
 
  
 
