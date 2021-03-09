@@ -47,7 +47,7 @@ Enter the following command to check IOX services are enabled and running.
 
 Additionally the **show app-hosting list** CLI can be used to show the state of the guestshell container:
 
-<img src="imgs/showapphostinglist.png" style="zoom:45%;" />
+<img src="imgs/showapphostinglist.png" style="zoom:40%;" />
 
  Step 2.     Configure and enable guestshell with the following commands:
 
