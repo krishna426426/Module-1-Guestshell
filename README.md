@@ -25,7 +25,9 @@ In this section we will look at IOS XE's on-box Linux container and its capabili
 
 Guestshell Python runs in an LXC container. This container is managed by IOX, which is a container manager specifically for IOS XE which is similar in function to Docker. Before using the guestshell, we must enable IOX and then enable guestshell.
 
- Step 1.     Login to the RDP from the POD access sheet provided by the proctor and connect to the C9300 switch using terminal
+ Step 1.     Login to the RDP **(username/password: auto/programmability@LAB)** from the POD access sheet provided by the proctor and connect to the C9300 switch using terminal
+
+<img src="imgs/rdp.png" style="zoom:50%;" />
 
 ```
 auto@programmability:~$ ssh admin@10.1.1.5
