@@ -17,7 +17,7 @@
 
 ## Guestshell with Guest-share
 
-In this section we will look at IOS XE's on-box Linux container and its capabilities. We will see how to enable it, how to use it to run Python scripts, and how to integrate it with EEM.
+In this section we will look at IOS XE's on-box Linux container and its capabilities. We will see how to enable it and access it and how to use it to use on-box Interactive Python.
 
 
 
