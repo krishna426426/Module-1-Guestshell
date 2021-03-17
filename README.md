@@ -27,7 +27,7 @@ Guestshell Python runs in an LXC container. This container is managed by IOX, wh
 
  Step 1.     Login to the RDP **(username/password: auto/programmability@LAB)** from the POD access sheet provided by the proctor and connect to the C9300 switch using terminal
 
-<img src="imgs/rdp.png" style="zoom:20%;" />
+<img src="imgs/rdp.png" style="zoom:50%;" />
 
 ```
 auto@programmability:~$ ssh admin@10.1.1.5
