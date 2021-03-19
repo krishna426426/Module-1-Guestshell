@@ -11,13 +11,15 @@
 
 [On-Box Interactive Python](#On-Box-Interactive-Python)
 
+[EEM Integration](EEM-Integration)
+
 [Conclusion](#conclusion)
 
 
 
 ## Guestshell with Guest-share
 
-In this section we will look at IOS XE's on-box Linux container and its capabilities. We will see how to enable it and access it and how to use it to use on-box Interactive Python.
+In this section we will look at IOS XE's on-box Linux container and its capabilities. We will see how to enable it, how to use it to run Python scripts, and how to integrate it with EEM.
 
 
 
@@ -371,4 +373,4 @@ C9300# more flash:guest-share/diff
 
 ## Conclusion
 
-In this module the Guestshell was configured, enabled, and the guest-shared folder was explored, and on-box python API has tested.
+In this module the Guestshell was configured,  guest-shared folder was explored,  on-box python API has tested and EEM has integrated.
