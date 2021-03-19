@@ -154,8 +154,24 @@ guest-share
 [guestshell@guestshell bootflash]$ cd guest-share
 guest-share
 [guestshell@guestshell guest-share]$ ls
-downloaded_script.py
+20210319-230210_shrun  base_config  cfg.py  current_config_name  diff  downloaded_script.py
 ```
+
+![](imgs/ls.png)
+
+**NOTE**: Ignore if you don’t have any of those files. These files are from previous lab which we will delete now and create new.
+
+Delete all the files as follow. All the files will get deleted except ‘downloaded_script.py' because its write protected. 
+
+```
+[guestshell@guestshell guest-share]$ rm *
+rm: remove write-protected regular file 'downloaded_script.py'?
+[guestshell@guestshell guest-share]$ ls
+downloaded_script.py
+[guestshell@guestshell guest-share]$
+```
+
+
 
 In the example above, the bootflash folder is empty except for the one shared folder: guest-share
 
@@ -227,7 +243,131 @@ Notice that the output of the **clip** function is much easier to read than befo
 
  Step 5.     Exit the interactive shell by executing **quit()**
 
- 
+## EEM Integration
+
+Embedded Event Manager (EEM) is a distributed and customized approach to event detection and recovery. EEM offers the ability to monitor an event and take a desired action when that event occurs. In this section, we will create a script that runs a diff between the current running config and the base configuration we use for our switches. 
+
+Before starting the next tasks we must first save the “base config” to the bootflash:
+
+```
+c9300# copy running-config flash:guest-share/base_config
+```
+
+![](imgs/baseconfig.png)
+
+
+
+Verify the file in guest-share directory
+
+![](imgs/dir.png)
+
+
+
+ Step 1.     Go to guestshell and use **vi** to edit a new file called **cfg.py**.
+
+```
+c9300#guestshell
+[guestshell@guestshell ~]$ vi /bootflash/guest-share/cfg.py
+```
+
+ Step 1.     Hit "i" to insert text, and then paste the following script into vi:
+
+```
+import os
+from cli import cli
+import time
+import difflib
+
+def save_config():
+  output = cli('show run')
+  timestr = time.strftime("%Y%m%d-%H%M%S")
+  filename = "/bootflash/guest-share/" + timestr + "_shrun"
+
+  f = open(filename,"w")
+  f.write(output)
+  f.close
+
+  f = open('/bootflash/guest-share/current_config_name','w')
+  f.write(filename)
+  f.close
+
+  return filename
+
+def compare_configs(cfg1,cfg2):
+
+  d = difflib.unified_diff(cfg1, cfg2)
+
+  diffstr = ""
+
+  for line in d:
+    if line.find('Current configuration') == -1:
+      if line.find('Last configuration change') == -1:
+        if (line.find("+++")==-1) and (line.find("---")==-1):
+          if (line.find("-!")==-1) and (line.find('+!')==-1):
+            if line.startswith('+'):
+              diffstr = diffstr + "\n" + line
+            elif line.startswith('-'):
+              diffstr = diffstr + "\n" + line
+  return diffstr
+
+if __name__ == '__main__':
+
+  old_cfg_fn = "/bootflash/guest-share/base_config"
+  new_cfg_fn = save_config()
+
+  f = open(old_cfg_fn)
+  old_cfg = f.readlines()
+  f.close
+
+  f = open(new_cfg_fn)
+  new_cfg = f.readlines()
+  f.close
+
+  diff =  compare_configs(old_cfg,new_cfg)
+  f = open("/bootflash/guest-share/diff","w")
+  f.write(diff)
+  f.close
+```
+
+
+
+  Hit ESC to exit edit mode, and then type ":wq" to save and quit.
+
+
+
+ Step 1.     The current script will run a diff between the current config and the running config, but we don't want to just run it. We want it to be triggered every time there is a config change. We will use EEM to accomplish this. Leave guestshell with exit.
+
+
+
+ Step 1.     Add the following config to your switch.
+
+
+
+```
+conf t
+event manager applet config_change
+ event syslog pattern "SYS-5-CONFIG_I"
+ action 0 cli command "enable"
+ action 1 cli command "guestshell run python3 /bootflash/guest-share/cfg.py"
+end
+```
+
+
+
+![](imgs/applet.png)
+
+
+
+ Step 1.     Exit and save your config. The act of exiting configuration mode will immediately fire off the on-box script. Check the guest-share and you will see the file. You can examine it with **more**.
+
+```
+C9300#  dir flash:guest-share
+C9300# more flash:guest-share/diff
+```
+
+
+
+![](imgs/diff.png)
 
 ## Conclusion
 
