@@ -345,6 +345,10 @@ if __name__ == '__main__':
 
  Step 1.     The current script will run a diff between the current config and the running config, but we don't want to just run it. We want it to be triggered every time there is a config change. We will use EEM to accomplish this. Leave guestshell with exit.
 
+```
+[guestshell@guestshell ~]$ exit
+```
+
 
 
  Step 1.     Add the following config to your switch.
