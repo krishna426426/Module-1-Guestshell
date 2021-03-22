@@ -261,6 +261,12 @@ c9300# copy running-config flash:guest-share/base_config
 
 Verify the file in guest-share directory
 
+```
+C9300#   dir flash:guest-share
+```
+
+
+
 ![](imgs/dir.png)
 
 
