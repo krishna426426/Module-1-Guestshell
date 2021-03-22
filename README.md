@@ -129,7 +129,7 @@ C9300(config)#iox
 C9300(config)#end
 ```
 
-<img src="imgs/enableentergs.png" style="zoom:80%;" />
+<img src="imgs/enableentergs.png" style="zoom:30%;" />
 
 Step 4. Enter the guestshell CLI. This guestshell container can access the device bootflash **guest-share** directory only.
 
