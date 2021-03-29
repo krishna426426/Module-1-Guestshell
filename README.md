@@ -339,7 +339,7 @@ if __name__ == '__main__':
 
 
 
-  Hit ESC to exit edit mode, and then type ":wq" to save and quit.
+  Hit **ESC** to exit edit mode, and then type **":wq"** to save and quit.
 
 
 
