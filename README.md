@@ -1,4 +1,3 @@
-
 # Module 1: Guestshell and Guest-share
 
 
@@ -159,9 +158,9 @@ guest-share
 20210319-230210_shrun  base_config  cfg.py  current_config_name  diff  downloaded_script.py
 ```
 
-![](imgs/ls.png)
-
 **NOTE**: Ignore if you don’t have any of those files. These files are from previous lab which we will delete now and create new.
+
+![](imgs/ls.png)
 
 Delete all the files as follow. All the files will get deleted except ‘downloaded_script.py' because its write protected. 
 
