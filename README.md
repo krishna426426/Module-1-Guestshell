@@ -274,6 +274,7 @@ C9300#   dir flash:guest-share
 
 ```
 c9300#guestshell
+
 [guestshell@guestshell ~]$ vi /bootflash/guest-share/cfg.py
 ```
 
