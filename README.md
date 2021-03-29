@@ -158,7 +158,7 @@ guest-share
 20210319-230210_shrun  base_config  cfg.py  current_config_name  diff  downloaded_script.py
 ```
 
-**NOTE**: You will see multiple files in guest share directory. Ignore if you don’t have any of those files. These files are from previous lab which we will delete now and create new
+**NOTE**: You will see multiple files in guest share directory. Ignore if you don’t have any of those files. These files are from previous lab which we will delete now and create new.
 
 ![](imgs/ls.png)
 
