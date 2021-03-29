@@ -278,7 +278,7 @@ c9300#guestshell
 [guestshell@guestshell ~]$ vi /bootflash/guest-share/cfg.py
 ```
 
- Step 1.     Hit "i" to insert text, and then paste the following script into vi:
+ Step 2.     Hit "i" to insert text, and then paste the following script into vi:
 
 ```
 import os
@@ -351,7 +351,7 @@ if __name__ == '__main__':
 
 
 
- Step 1.     Add the following config to your switch.
+ Step 3.     Add the following config to your switch.
 
 
 
@@ -370,7 +370,7 @@ end
 
 
 
- Step 1.     Exit and save your config. The act of exiting configuration mode will immediately fire off the on-box script. Check the guest-share and you will see the file. You can examine it with **more**.
+ Step 4.     Exit and save your config. The act of exiting configuration mode will immediately fire off the on-box script. Check the guest-share and you will see the file. You can examine it with **more**.
 
 ```
 C9300#  dir flash:guest-share
