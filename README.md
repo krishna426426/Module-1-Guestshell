@@ -158,7 +158,7 @@ guest-share
 20210319-230210_shrun  base_config  cfg.py  current_config_name  diff  downloaded_script.py
 ```
 
-**NOTE**: You will see multiple files in guest share directory. Ignore if you don’t have any of those files. These files are from previous lab which we will delete now and create new.
+**NOTE**: If you don't see all those files in guest share directory. Don't worry about that those files are from previous lab which we will delete now and create new files.
 
 ![](imgs/ls.png)
 
@@ -172,9 +172,7 @@ downloaded_script.py
 [guestshell@guestshell guest-share]$
 ```
 
-
-
-In the example above, the bootflash folder is empty except for the one shared folder: guest-share
+Verify python version by executing the following command.
 
 ```
 [guestshell@guestshell ~]$ python3 --version
@@ -182,7 +180,7 @@ Python 3.6.8
 [guestshell@guestshell ~]$
 ```
 
-In the example above we show that Python3 is installed.
+
 
  Step 5.     Exit the guestshell by sending exit command and returning to the IOS XE CLI
 
